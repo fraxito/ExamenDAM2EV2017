@@ -30,16 +30,45 @@ public class Sudoku {
         return true;
     }
 
-     
+    private String removeAllOccurrences(String str, char ch){
+        String auxiliar = "";
+        str = str.toLowerCase();
+        for (int i=0; i< str.length(); i++){
+            if (str.charAt(i) != ch){
+                auxiliar = auxiliar + str.charAt(i);
+            }
+        }
+        return auxiliar;
+    }
+    
+    private String justificaConPuntos(String digitos){
+        String auxiliar="";
+        if (digitos.length() <= 3){
+            return digitos;
+        }
+        else{
+            int contadorTriples=0;
+            for (int i=digitos.length()-1; i>=0; i--){
+                auxiliar = digitos.charAt(i) + auxiliar;
+                contadorTriples++;
+                if (contadorTriples % 3 == 0 && i!=0){
+                    auxiliar = '.' + auxiliar;
+                }
+            }
+            return auxiliar;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         //una matriz como la del ejercicio, para hacer pruebas
-       int [][] matriz = {{5,2,3},{4,1,6},{7,8,9}};
+       int [][] matriz = {{5,2,3},{4,5,6},{7,8,9}};
        //imprime la salida del método que hemos creado para el examen
-       System.out.println(new Sudoku().chequeaSudoku(matriz));
-        
+        System.out.println(new Sudoku().chequeaSudoku(matriz));
+        System.out.println(new Sudoku().removeAllOccurrences("Perro de San Roque", 'r'));
+        System.out.println(new Sudoku().justificaConPuntos("208577e"));
     }
     
 }
