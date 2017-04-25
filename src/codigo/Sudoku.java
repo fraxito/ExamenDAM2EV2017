@@ -36,6 +36,14 @@ public class Sudoku {
      */
     public static void main(String[] args) {
         //una matriz como la del ejercicio, para hacer pruebas
+        boolean[][] camion = {
+            {true, true, true, true, true, true, true, true},
+            {true, true, true, true, true, true, true, true},
+            {true, true, true, true, true, true, true, true},
+            {true, true, true, true, true, true, true, true},
+            {true, true, true, true, true, true, true, true}
+        };
+
        int [][] matriz = {{5,2,3},{4,1,6},{7,8,9}};
        //imprime la salida del método que hemos creado para el examen
        System.out.println(new Sudoku().chequeaSudoku(matriz));
